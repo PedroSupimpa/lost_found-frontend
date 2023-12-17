@@ -8,31 +8,30 @@ import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 export function Welcome() {
   const navigation = useNavigation<NativeStackNavigationProp<ParamListBase>>();
   return (
-    <SafeAreaView
-      className="flex-1"
-      style={{ backgroundColor: THEME.colors.primary }}
-    >
-      <View className=" flex-1 flex justify-around my-4">
-        <Text className="text-center text-white text-4xl font-bold">
-          Let's Get Started
+    <SafeAreaView className="flex-1 bg-indigo-500">
+      <View className=" flex-1 justify-around m-4">
+        <Text className="text-start text-white text-4xl font-bold">
+          Lost & Found
         </Text>
       </View>
-      <View className="space-y-4">
+      <View>
         <TouchableOpacity
-          className="py-3 bg-yellow-400 mx-7 rounded-xl"
+          className="py-3 bg-white mx-7 rounded-xl"
           onPress={() => navigation.navigate("Signup")}
         >
-          <Text className="text-xl font-bold text-center text-gray-700">
-            Sing Up
+          <Text className="text-xl font-bold text-center text-indigo-500">
+            Sing up
           </Text>
         </TouchableOpacity>
       </View>
-      <View className="flex-row justify-center items-center mb-5">
-        <Text className="text-white font-semibold my-4">
-          Already have an account?{" "}
-        </Text>
-        <TouchableOpacity onPress={() => navigation.navigate("Login")}>
-          <Text className="text-yellow-400 font-semibold">Login</Text>
+      <View>
+        <TouchableOpacity
+          className="py-3 bg-indigo-500 border-white border-2 m-7 rounded-xl"
+          onPress={() => navigation.navigate("Login")}
+        >
+          <Text className="text-xl font-bold text-center text-white">
+            Log in
+          </Text>
         </TouchableOpacity>
       </View>
     </SafeAreaView>
