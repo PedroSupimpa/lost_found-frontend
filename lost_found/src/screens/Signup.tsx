@@ -3,9 +3,23 @@ import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import { Text, TextInput, TouchableOpacity, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { AntDesign } from "@expo/vector-icons";
+import { createUser } from "../service/userService";
 
 export default function Signup() {
   const navigation = useNavigation<NativeStackNavigationProp<ParamListBase>>();
+
+  const creatingUser = {
+    name: "John Doe",
+    phone: "123456789",
+    email: "JohnDoe@gmail.com",
+    password: "123456789",
+    address: {
+      zipcode: "123456789",
+      address: "John Doe's Street",
+      number: "123",
+    },
+  };
+
   return (
     <SafeAreaView className="flex-1 bg-indigo-500 justify-center">
       <TouchableOpacity className="p-5" onPress={() => navigation.goBack()}>
@@ -30,7 +44,10 @@ export default function Signup() {
           <TextInput placeholder="Password" secureTextEntry={true} />
         </View>
 
-        <TouchableOpacity className="bg-indigo-700 w-full py-3 rounded-md my-2">
+        <TouchableOpacity
+          className="bg-indigo-700 w-full py-3 rounded-md my-2"
+          onPress={() => createUser(creatingUser)}
+        >
           <Text className="text-white text-center font-bold">Sign up</Text>
         </TouchableOpacity>
 
