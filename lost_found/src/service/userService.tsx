@@ -1,11 +1,11 @@
 import axios from "axios";
 
-interface IUserRequest {
+export interface IUserRequest {
   name: string;
-  phone: string;
+  phone?: string;
   email: string;
   password: string;
-  address: {
+  address?: {
     zipcode: string;
     address: string;
     number: string;
@@ -14,4 +14,12 @@ interface IUserRequest {
 
 export const createUser = async (user: IUserRequest) => {
   await axios.post("http://localhost:3000/user", user);
+};
+
+export const login = async (email: string, password: string) => {
+  const response = await axios.post("http://localhost:3000/user/login", {
+    email,
+    password,
+  });
+  return response.data;
 };
