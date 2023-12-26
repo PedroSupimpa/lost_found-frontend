@@ -27,6 +27,7 @@ export default function Signup() {
       </TouchableOpacity>
 
       <View className="pt-10 px-4">
+        Text
         <Text className="text-start text-white text-4xl font-bold">
           Welcome back
         </Text>
