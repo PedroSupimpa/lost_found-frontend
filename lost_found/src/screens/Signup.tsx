@@ -20,6 +20,11 @@ export default function Signup() {
       email: "",
       password: "",
       phone: "",
+      address: {
+        zipcode: "",
+        address: "",
+        number: "",
+      },
     },
   });
 
@@ -65,6 +70,25 @@ export default function Signup() {
             name="name"
           />
           {errors.name && <Text>{errors.name.message}</Text>}
+        </View>
+
+        {/* Name Input */}
+        <View className="bg-white w-full rounded-md my-2 py-2 px-4">
+          <Controller
+            control={control}
+            rules={{ required: "Phone is required" }}
+            render={({ field: { onChange, onBlur, value } }) => (
+              <TextInput
+                placeholder="Phone"
+                onBlur={onBlur}
+                onChangeText={onChange}
+                value={value}
+                className="bg-white w-full rounded-md my-2 py-2 px-4"
+              />
+            )}
+            name="phone"
+          />
+          {errors.phone && <Text>{errors.phone.message}</Text>}
         </View>
 
         {/* Email Input */}
