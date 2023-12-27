@@ -95,7 +95,13 @@ export default function Signup() {
         <View className="bg-white w-full rounded-md my-2 py-2 px-4">
           <Controller
             control={control}
-            rules={{ required: "Email is required" }}
+            rules={{
+              required: "Email is required",
+              pattern: {
+                message: "Invalid email",
+                value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+              },
+            }}
             render={({ field: { onChange, onBlur, value } }) => (
               <TextInput
                 placeholder="Email"
